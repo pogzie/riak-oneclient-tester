@@ -3,9 +3,11 @@
 # Title: Install Riak and dependencies
 # Author: Allan Paul "Pogz" Sy Ortile
 # Date: 2016-07-04
-# Version: 0.01 (2016-07-04)
+# Version: 0.02 (2016-07-14)
 # Notes:
 #	0.01 - Recycled the old code from the DevRel setup and removed some useless stuff.
+# Todo:
+# - Fix setting limits.
 
 clear
 

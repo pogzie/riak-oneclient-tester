@@ -3,10 +3,12 @@
 # Title: Install Riak client tester scripts
 # Author: Allan Paul "Pogz" Sy Ortile
 # Date: 2016-07-04
-# Version: 0.01 (2016-07-04)
+# Version: 0.02 (2016-07-14)
 # Notes:
+# 0.02 - Fixed Go to use go run (rather than building and running separately)
+#       - Fixed Java to be less dependent on hardcoded file names
 # Todo:
-# 	- DotNet tester
+# - DotNet tester
 
 clear
 
@@ -46,17 +48,18 @@ export PATH=$PATH:$GOROOT/bin
 cd ~
 cd ${RIAK_CLIENT_TESTER##*/}
 cd go
-go build
-./go
+go run riak.go
+#go build
+#./go
 
 # Riak Java
 echo "== Running Riak Java Tests =="
 cd ~
 cd ${RIAK_CLIENT_TESTER##*/}
 cd java
-javac -cp ~/riak-java-client/riak-client-2.0.5-jar-with-dependencies.jar Riak.java
+javac -cp ~/riak-java-client/${GO_CLIENT_INSTALLER##*/} Riak.java
 # Doesnt like ~ here
-java -cp .:/root/riak-java-client/riak-client-2.0.5-jar-with-dependencies.jar Riak
+java -cp .:/root/riak-java-client/${GO_CLIENT_INSTALLER##*/} Riak
 
 # Riak NodeJS
 echo "== Running Riak NodeJS Tests =="
