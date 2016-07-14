@@ -57,7 +57,7 @@ then
       cd ~
       wget $GO_CLIENT_INSTALLER
       # This gets the filename after the slash
-      sudo tar -C /usr/local ${GO_CLIENT_INSTALLER##*/}
+      sudo tar -C /usr/local -zxvf ${GO_CLIENT_INSTALLER##*/}
       export GOPATH=$HOME
       export GOROOT=/usr/local/go
       export PATH=$PATH:$GOROOT/bin

@@ -57,9 +57,9 @@ echo "== Running Riak Java Tests =="
 cd ~
 cd ${RIAK_CLIENT_TESTER##*/}
 cd java
-javac -cp ~/riak-java-client/${GO_CLIENT_INSTALLER##*/} Riak.java
+javac -cp ~/riak-java-client/${JAVA_CLIENT_JAR##*/} Riak.java
 # Doesnt like ~ here
-java -cp .:/root/riak-java-client/${GO_CLIENT_INSTALLER##*/} Riak
+java -cp .:/root/riak-java-client/${JAVA_CLIENT_JAR##*/} Riak
 
 # Riak NodeJS
 echo "== Running Riak NodeJS Tests =="
