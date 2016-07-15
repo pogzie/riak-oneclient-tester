@@ -12,6 +12,12 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell",
     inline: "date"
 
+  # This keeps the provisioning folder in sync
+  # While this feature makes it possible to flip the switches in installing clients,
+    # Double checking and installing stuff takes time. This needs to be evaluated
+    # so that future flipping of client installs wouldnt take much time.
+  #config.vm.synced_folder "provision", "/home/vagrant/provision"
+
   # This drops this to the vagrant home directory under provision folder
   config.vm.provision "file",
     source: "provision",
@@ -38,9 +44,6 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell",
     inline: "/bin/bash /home/vagrant/provision/install_client_tester.sh",
     run: "always"
-
-  # TODO: Split client tests from install
-  # This is so that it could run every boot.
 
   config.vm.provision "shell",
     inline: "date"

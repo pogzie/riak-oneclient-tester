@@ -4,6 +4,8 @@ A vagrant box containing an installation of the latest Riak build, installed and
 
 The premise of this is to get you up to speed in using Riak and developing stuff with the clients. Even if you have zero experience with a programming language, it will save you the frustration in downloading the client libraries and setting up dependencies. Provision the machine, edit the small test scripts and it just works.
 
+Installing Riak and all of the clients and its dependencies from scratch would take around 45 mins. Running the box from power off after initialization would just be under a minute.
+
 ## Setup and Installation
 Please make sure you have Vagrant installed.
 

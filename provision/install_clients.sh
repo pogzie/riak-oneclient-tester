@@ -8,6 +8,7 @@
 # - 0.02 - Added encompassing IFs and smaller Ifs for managing what clients to install
 # Todo:
 #	- DotNet still broken. Fix this.
+# - Need to add install checks so that efforts would not double when starting.
 
 clear
 
@@ -139,7 +140,7 @@ then
     if [ $INSTALL_RUBY = "true" ]
     then
       echo "Installing dependencies."
-      sudo apt-get -y install
+      sudo apt-get -y install ruby
       cd ~
       sudo gem install riak-client
       mkdir riak-ruby-client
