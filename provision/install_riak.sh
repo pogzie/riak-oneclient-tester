@@ -51,6 +51,7 @@ echo "riak soft nofile 4096" >> /etc/security/limits.conf
 echo "riak hard nofile 32768" >> /etc/security/limits.conf
 ulimit -n 32768
 
+# Should this be removed? The Vagrant file already calls install then start Riak. 
 echo "== Starting Riak node =="
 riak start
 
