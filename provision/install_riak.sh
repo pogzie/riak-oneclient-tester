@@ -49,6 +49,7 @@ echo "root soft nofile 4096" >> /etc/security/limits.conf
 echo "root hard nofile 32768" >> /etc/security/limits.conf
 echo "riak soft nofile 4096" >> /etc/security/limits.conf
 echo "riak hard nofile 32768" >> /etc/security/limits.conf
+ulimit -n 32768
 
 echo "== Starting Riak node =="
 riak start
