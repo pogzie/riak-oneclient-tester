@@ -3,7 +3,7 @@
 # Title: Install Riak and dependencies
 # Author: Allan Paul "Pogz" Sy Ortile
 # Date: 2016-07-04
-# Version: 0.02 (2016-07-14)
+# Version: 0.03 (2016-09-26)
 # Notes:
 #	0.01 - Recycled the old code from the DevRel setup and removed some useless stuff.
 # Todo:
@@ -36,13 +36,25 @@ sudo apt-get -y install build-essential libc6-dev-i386 git libpam0g-dev
 echo "== Go back to the home directory =="
 cd ~
 
-echo "== Fetching Riak =="
-wget $RIAK_PACKAGE
+# Check the config if we're installing Riak or Riak TS
+if [ $INSTALL_WHAT = "ts" ]
+  then
+  # Put TS installation stuff here
+  echo "== Fetching Riak TS =="
+  wget $RIAKTS_PACKAGE
 
-echo "== Installing Riak Package =="
-# This will get the filename from the $RIAK_PACKAGE variable in the config
-sudo dpkg -i ${RIAK_PACKAGE##*/}
+  echo "== Installing Riak TS Package =="
+  # This will get the filename from the $RIAK_PACKAGE variable in the config
+  sudo dpkg -i ${RIAKTS_PACKAGE##*/}
 
+else
+  echo "== Fetching Riak =="
+  wget $RIAK_PACKAGE
+
+  echo "== Installing Riak Package =="
+  # This will get the filename from the $RIAK_PACKAGE variable in the config
+  sudo dpkg -i ${RIAK_PACKAGE##*/}
+fi
 
 echo "== Setting Limits =="
 echo "root soft nofile 4096" >> /etc/security/limits.conf
@@ -50,12 +62,5 @@ echo "root hard nofile 32768" >> /etc/security/limits.conf
 echo "riak soft nofile 4096" >> /etc/security/limits.conf
 echo "riak hard nofile 32768" >> /etc/security/limits.conf
 ulimit -n 32768
-
-# Should this be removed? The Vagrant file already calls install then start Riak. 
-#echo "== Starting Riak node =="
-#riak start
-
-#echo "== Pinging Riak node =="
-#riak ping
 
 echo "==== DONE ===="

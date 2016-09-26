@@ -3,7 +3,7 @@
 # Title: Install Riak client tester scripts
 # Author: Allan Paul "Pogz" Sy Ortile
 # Date: 2016-07-04
-# Version: 0.02 (2016-07-14)
+# Version: 0.03 (2016-09-26)
 # Notes:
 # 0.02 - Fixed Go to use go run (rather than building and running separately)
 #       - Fixed Java to be less dependent on hardcoded file names
@@ -24,13 +24,38 @@ cd ~
 echo "== Pulling the repository =="
 git clone $RIAK_CLIENT_TESTER
 
-
 echo "== Running client tests =="
 sudo su
 
-if [ $INSTALL_CLIENTS = "true" ]
-then
+echo "== Verify that Riak is running =="
+if [[ $(riak ping) = *pong* ]]; then
+  echo "Riak is running!"
+else
+  echo "Riak is NOT running. Starting manually."
+  riak start
+fi
 
+# If clients are installed and test Riak
+if [ $INSTALL_CLIENTS = "true" ] && [ $INSTALL_WHAT = "ts" ]
+
+      then
+      echo "== Creating test table GeoCheckin =="
+      sudo su riak
+      riak-admin bucket-type create GeoCheckin '{"props":{"table_def": "CREATE TABLE GeoCheckin (id SINT64 NOT NULL, region VARCHAR NOT NULL, state VARCHAR NOT NULL, time TIMESTAMP NOT NULL, weather VARCHAR NOT NULL, temperature DOUBLE, PRIMARY KEY ((id, QUANTUM(time, 15, 'm')), id, time))"}}'
+
+      echo "== Activating GeoCheckin =="
+      riak-admin bucket-type activate GeoCheckin
+
+      echo "== Checking GeoCheckin status =="
+      riak-admin bucket-type status GeoCheckin
+
+      echo "== Running Riak TS Tests =="
+      echo "Nothing here yet. Move along."
+
+# By default it runs the Riak tests
+elif [ $INSTALL_CLIENTS = "true" ] && [ $INSTALL_WHAT = "riak" ]
+
+      then
       # Riak DotNet
       echo "== Running Riak DotNet Tests =="
       if [ $INSTALL_DOTNET = "true" ]
@@ -78,7 +103,7 @@ then
         cd ~
         cd ${RIAK_CLIENT_TESTER##*/}
         cd java
-        javac -cp ~/riak-java-client/${JAVA_CLIENT_JAR##*/} Riak.java
+        javac -cp /root/riak-java-client/${JAVA_CLIENT_JAR##*/} Riak.java
         # Doesnt like ~ here
         java -cp .:/root/riak-java-client/${JAVA_CLIENT_JAR##*/} Riak
       else

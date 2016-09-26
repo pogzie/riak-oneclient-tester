@@ -1,6 +1,6 @@
 # Riak One Node Client Tester (Work in Progress)
 
-A vagrant box containing an installation of the latest Riak build, installed and configured to provide you with a node on the same local machine. This script also provisions you the latest Basho supported Riak clients and a small sample script is downloaded to test for connectivity and esures that the client installation is configured correctly. (No more fumbling around trying to make the client installation work)
+A vagrant box containing an installation of the latest Riak (or Riak TS) build, installed and configured to provide you with a node on the same local machine. This script also provisions you the latest Basho supported Riak clients and a small sample script is downloaded to test for connectivity and esures that the client installation is configured correctly. (No more fumbling around trying to make the client installation work)
 
 The premise of this is to get you up to speed in using Riak and developing stuff with the clients. Even if you have zero experience with a programming language, it will save you the frustration in downloading the client libraries and setting up dependencies. Provision the machine, edit the small test scripts and it just works.
 
@@ -15,11 +15,15 @@ cd riak-onenode-tester
 vagrant up
 ```
 
+## Riak TS Support
+Riak TS support is experimental. You may set to install Riak TS (instead of Riak) via the config.cfg. It will create you a table based from the tutorial but I dont have any tests for it right now.
+
 ## Usage Notes
-There is a short inline documentation on the source code for the riak-onenode-client-tester files which will help you debug or use the code properly.
+There is a short inline documentation on the source code for the riak-onenode-tester files which will help you debug or use the code properly.
 
 ## Todo
 * DotNet client still needs some love
+* Riak TS test scripts
 * Update this from time to time since Basho Engineers are constantly updating client files and the Riak installer itself.
 
 ## Disclaimer
