@@ -5,7 +5,7 @@
 # Date: 2016-07-04
 # Version: 0.03 (2016-09-26)
 # Notes:
-#	0.01 - Recycled the old code from the DevRel setup and removed some useless stuff.
+#	  0.01 - Recycled the old code from the DevRel setup and removed some useless stuff.
 # Todo:
 # - Fix setting limits.
 

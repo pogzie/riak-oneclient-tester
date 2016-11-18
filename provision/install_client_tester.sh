@@ -5,8 +5,8 @@
 # Date: 2016-07-04
 # Version: 0.03 (2016-09-26)
 # Notes:
-# 0.02 - Fixed Go to use go run (rather than building and running separately)
-#       - Fixed Java to be less dependent on hardcoded file names
+#   0.02 - Fixed Go to use go run (rather than building and running separately)
+#        - Fixed Java to be less dependent on hardcoded file names
 # Todo:
 # - DotNet tester
 

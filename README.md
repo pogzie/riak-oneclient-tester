@@ -26,6 +26,9 @@ There is a short inline documentation on the source code for the riak-onenode-te
 * Riak TS test scripts
 * Update this from time to time since Basho Engineers are constantly updating client files and the Riak installer itself.
 
+## Updates
+* 20161118 - Added support for Riak 2.2 including the new clients.
+
 ## Disclaimer
 This code does not come with any warranty whatsoever. Do not blame the author for any untoward incident that happens to you, your family, your dog, or any of your property by using this code. Use wisely.
 

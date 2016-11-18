@@ -5,7 +5,7 @@
 # Date: 2016-07-04
 # Version: 0.02 (2016-07-14)
 # Notes:
-# - 0.02 - Added encompassing IFs and smaller Ifs for managing what clients to install
+#   0.02 - Added encompassing IFs and smaller Ifs for managing what clients to install
 # Todo:
 #	- DotNet still broken. Fix this.
 # - Need to add install checks so that efforts would not double when starting.
@@ -77,7 +77,14 @@ then
     then
       # Pull the jar files from here: http://riak-java-client.s3.amazonaws.com/index.html
       echo "Installing dependencies."
-      sudo apt-get -y install openjdk-7-jdk
+      # Commented out in favor of Java 8
+      # sudo apt-get -y install openjdk-7-jdk
+      sudo apt-add-repository ppa:webupd8team/java
+      sudo apt-get update
+      # Accept the license
+      echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+      echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+      sudo apt-get -y install oracle-java8-installer
       echo "Downloading JAR file."
       cd ~
       mkdir riak-java-client
