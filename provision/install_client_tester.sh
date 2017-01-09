@@ -119,7 +119,7 @@ elif [ $INSTALL_CLIENTS = "true" ] && [ $INSTALL_WHAT = "riak" ]
         cd ${RIAK_CLIENT_TESTER##*/}
         cd nodejs
         export NODE_PATH=/usr/local/lib/node_modules
-        nodejs riak.js
+        node riak.js
       else
         echo "INSTALL_NODEJS is set to $INSTALL_NODEJS. No test will run."
       fi
