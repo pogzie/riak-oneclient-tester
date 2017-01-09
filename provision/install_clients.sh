@@ -106,7 +106,7 @@ then
       cd ~
       sudo npm install --global --save basho-riak-client
       #sudo npm link winston
-      export NODE_PATH=/usr/local/lib/node_modules
+      export NODE_PATH=/usr/lib/node_modules
       mkdir riak-nodejs-client
     else
       echo "INSTALL_NODEJS is set to $INSTALL_NODEJS"
