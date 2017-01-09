@@ -23,10 +23,13 @@ There is a short inline documentation on the source code for the riak-onenode-te
 
 ## Todo
 * DotNet client still needs some love
+* Upgrade to Riak TS 1.5
 * Riak TS test scripts
-* Update this from time to time since Basho Engineers are constantly updating client files and the Riak installer itself.
+* Add a good list of Riak/Riak TS versions (commented) on the provisioning file so users would have the option to install older builds
+* Update this from time to time since Basho Engineers are constantly updating client files and the Riak installer itself
 
 ## Updates
+* 20170109 - Did some modifications to how NodeJS is installed. 
 * 20161118 - Added support for Riak 2.2 including the new clients.
 
 ## Disclaimer
