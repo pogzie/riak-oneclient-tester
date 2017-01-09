@@ -99,7 +99,10 @@ then
     if [ $INSTALL_NODEJS = "true" ]
     then
       echo "Installing dependencies."
-      sudo apt-get -y install npm node nodejs
+      #sudo apt-get -y install npm node nodejs
+      sudo apt-get -y install python-software-properties
+      curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+      sudo apt-get -y install nodejs
       cd ~
       sudo npm install --global --save basho-riak-client
       #sudo npm link winston
