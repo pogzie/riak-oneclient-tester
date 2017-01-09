@@ -29,7 +29,7 @@ riak ping
 
 echo "== Set environment variables =="
 # For NodeJS client
-export NODE_PATH=/usr/local/lib/node_modules
+export NODE_PATH=/usr/lib/node_modules
 
 # For Go client
 export GOPATH=$HOME
